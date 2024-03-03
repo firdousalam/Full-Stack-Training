@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!--
+    HTML Links - The target Attribute
+By default, the linked page will be displayed in the current browser window. To change this, you must specify another target for the link.
+
+The target attribute specifies where to open the linked document.
+
+The target attribute can have one of the following values:
+
+_self - Default. Opens the document in the same window/tab as it was clicked
+_blank - Opens the document in a new window or tab
+_parent - Opens the document in the parent frame
+_top - Opens the document in the full body of the window
+  -->
+  
+    <a id="heading" href="https://developer.mozilla.org/en-US/">
+        <h1>MDN Web Docs</h1>
+      </a>
+
+      <a href="https://developer.mozilla.org/en-US/">
+        <img src="images/image.png" alt="MDN Web Docs" />
+      </a>
+
+      <p>
+        I'm creating a link to
+        <a
+          href="https://www.mozilla.org/en-US/"
+          title="The best place to find more information about Mozilla's
+                mission and how to contribute">
+          the Mozilla homepage</a>.
+      </p>
+
+      <p>
+        Want to contact a specific staff member? Find details on our
+        <a href="contact.html">contacts page</a>.
+      </p>
+      <p>
+        Documenting web technologies, including CSS, HTML, and JavaScript, since 2005.
+      </p>
+    <p>
+        <a href="https://www.example.com/large-report.pdf">
+          Download the sales report (PDF, 10MB)
+        </a>
+      </p>
+      
+      <p>
+        <a href="https://www.example.com/video-stream/" target="_blank">
+          Watch the video (stream opens in separate tab, HD quality)
+        </a>
+      </p>
+
+      <a
+        href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+        download="firefox-latest-64bit-installer.exe">
+        Download Latest Firefox for Windows (64-bit) (English, US)
+    </a>
+</body>
+</html>
