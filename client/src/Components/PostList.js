@@ -8,6 +8,7 @@ export default function PostList() {
     const fetchPost = async () =>{
         const res = await axios.get('http://localhost:4000/post');
         setPost(res.data);
+       
     }
     useEffect(()=>{
         fetchPost();

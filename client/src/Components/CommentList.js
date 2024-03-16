@@ -7,6 +7,7 @@ export default function CommentList({postId}) {
     const fetchComment = async () =>{
         const res = await axios.get('http://localhost:4001/post/'+postId+'/comment');
         setComment(res.data);
+        
     }
     useEffect(()=>{
         fetchComment();
