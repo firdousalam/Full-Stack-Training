@@ -12,17 +12,17 @@ app.get("/post",(req,res)=>{
     res.send(posts);
 });
 
-app.post("/post",(req,res)=>{
+app.post("/post",async (req,res)=>{
     const id = randomBytes(4).toString('hex');
-    //id = "gdvgsdgjgdsjgjdsgjds"
-    console.log("test",req.body);
     const {title} = req.body;
-    // read data from my api post call title : post1
-    console.log("title",title);
     posts[id] ={id,title};
    
+    await axios.post('http://localhost:4005/event',{
+        'type' : 'PostCreated',
+        'data' : {id,title}
+    });
     res.status(201).send(posts[id]);
 });
 app.listen(4000,function(req,res){
-    console.log("app is running")
+    console.log("app is running 4000")
 })
