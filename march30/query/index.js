@@ -11,16 +11,25 @@ app.get('/post',(req,res)=>{
 })
 
 app.post('/events',(req,res)=>{
-    console.log("details",req.body);
+   // console.log("details",req.body);
     const {type,data} = req.body;
     if(type == 'PostCreated'){
         const {id,title} = data;
         post[id] = {id,title,comments:[]};
-        console.log(post);
+      //  console.log(post);
     }
     if(type == 'CommentCreated'){
         const {id,content,postId} = data;
         post[postId].comments.push({id,content});
+    }
+    if(type == 'CommentUpdated'){
+        const {id,content,postId,status} = data;
+        const post = posts[postId];
+        const comment = post.comments.find(comment =>{
+            return comment.id = id
+        })
+       comment.status = status;
+       comment.content = content;
     }
    
     res.send({"msg" : "event Process"});

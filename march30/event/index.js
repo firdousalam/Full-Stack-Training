@@ -12,10 +12,10 @@ const baseURL = process.env.BASE_URL;
 app.post('/events',(req,res)=>{
     const event = req.body;
     console.log("events",event)
-     axios.post(baseURL+":4000/events",event);
+    axios.post(baseURL+":4000/events",event);
     axios.post(baseURL+":4001/events",event);
-    console.log("events 02",event)
     axios.post(baseURL+":4002/events",event);
+    axios.post(baseURL+":4003/events",event);
 
     res.send({status:"ok"});
 })
