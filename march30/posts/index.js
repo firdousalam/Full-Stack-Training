@@ -23,6 +23,11 @@ app.post("/post",async (req,res)=>{
         'type' : 'PostCreated',
         'data' : {id,title}
     })
+    /*
+     axios.post("http://localhost:4003/events", event).catch((err) => {
+    console.log(err.message);
+  });
+  */
     
     res.status(201).send(posts[id]);
 });

@@ -11,16 +11,38 @@ app.get('/post',(req,res)=>{
 })
 
 app.post('/events',(req,res)=>{
-    console.log("details",req.body);
+   // console.log("details",req.body);
     const {type,data} = req.body;
     if(type == 'PostCreated'){
         const {id,title} = data;
         post[id] = {id,title,comments:[]};
-        console.log(post);
+      //  console.log(post);
     }
     if(type == 'CommentCreated'){
-        const {id,content,postId} = data;
-        post[postId].comments.push({id,content});
+        const {id,content,postId,status} = data;
+        console.log("comment created",data);
+        post[postId].comments.push({id,content,status});
+        console.log("new data created",post[postId]);
+    }
+    if(type == 'CommentModerated'){
+        const {id,content,postId,status} = data;
+        console.log("comment Moderated",data);
+        const UpdatedPost = post[postId].comments;
+   
+        var commentIndex = -1;
+        var messageId = id;
+        var filteredRes = UpdatedPost.find(function(item, i){
+            if(item.id === messageId){
+                commentIndex = i;
+            return i;
+            }
+        });
+
+        console.log("commentIndex",commentIndex);
+      
+        post[postId].comments[commentIndex].status = status;
+        
+        console.log("comment details",post[postId])
     }
    
     res.send({"msg" : "event Process"});
