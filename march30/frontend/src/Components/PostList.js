@@ -15,16 +15,15 @@ export default function PostList() {
         fetchPost();
     },[])
     const renderValue = Object.values(posts).map(post =>{
-        return <>
-            <div className='card' style={{width : '30%' ,marginBottom:'20px'}} key={post.id}>
-                <div className='card-body'>
-                    <h3>{post.title}</h3>
-                    <CommentList comments = {post.comments} />
-                    <CommentCreate postId = {post.id} title={post.title}/>
-                   
+        return <div className='card' style={{width : '30%' ,marginBottom:'20px'}} key={post.id}>
+                    <div className='card-body'>
+                        <h3>{post.title}</h3>
+                        <CommentList comments = {post.comments} />
+                        <CommentCreate postId = {post.id} title={post.title}/>
+                    
+                    </div>
                 </div>
-            </div>
-        </>
+       
     })
   return (
     <div className='d-flex flex-row flex-wrap justify-content-between'>
