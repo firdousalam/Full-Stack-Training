@@ -10,7 +10,8 @@ const posts = {};
 
 app.get("/post",(req,res)=>{
 // db call get data
-    res.send(posts);
+    console.log("getting post call")
+    res.send({"from" : "docker","data":posts});
 });
 
 app.post("/post",async (req,res)=>{
@@ -19,7 +20,7 @@ app.post("/post",async (req,res)=>{
     posts[id] ={id,title};
     console.log(posts);
    
-    await axios.post('http://localhost:4005/events',{
+    await axios.post('http://event-bus-srv:4005/events',{
         'type' : 'PostCreated',
         'data' : {id,title}
     })
@@ -36,5 +37,5 @@ app.post('/events',(req,res)=>{
     res.send({"msg" : "event receive"});
 })
 app.listen(4000,function(req,res){
-    console.log("app is running 4000")
+    console.log("app is running 4009 by docker vv latest" )
 })
