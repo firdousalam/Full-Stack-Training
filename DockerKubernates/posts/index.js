@@ -36,5 +36,6 @@ app.post('/events',(req,res)=>{
     res.send({"msg" : "event receive"});
 })
 app.listen(4000,function(req,res){
+    console.log("v30");
     console.log("app is running 4000")
 })
