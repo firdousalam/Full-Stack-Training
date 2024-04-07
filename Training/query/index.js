@@ -41,7 +41,7 @@ app.post('/events',(req,res)=>{
 })
 app.listen(4002,async function(req,res){
     console.log("app is running 4002");
-    const previousEvent = await axios.get("http://localhost:4005/events");
+    const previousEvent = await axios.get("http://event-bus-srv:4005/events");
     console.log("previos data ",previousEvent)
     for(let event of previousEvent.data.data){
         console.log("processing event",event.type);
