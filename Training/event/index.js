@@ -13,7 +13,7 @@ let events = [];
 app.post('/events',(req,res)=>{
     const event = req.body;
     events.push(event);
-    axios.post(baseURL+":4000/events",event).then(function (response) {
+    axios.post("http://post-clusterip-srv:4000/events",event).then(function (response) {
         // handle success
         console.log(response);
       })
@@ -21,7 +21,7 @@ app.post('/events',(req,res)=>{
         // handle error
         console.log(error);
       })
-    axios.post(baseURL+":4001/events",event).then(function (response) {
+    axios.post("http://comment-srv:4001/events",event).then(function (response) {
         // handle success
         console.log(response);
       })
@@ -29,7 +29,7 @@ app.post('/events',(req,res)=>{
         // handle error
         console.log(error);
       })
-    axios.post(baseURL+":4002/events",event).then(function (response) {
+    axios.post("http://query-srv:4002/events",event).then(function (response) {
         // handle success
         console.log(response);
       })
@@ -37,7 +37,7 @@ app.post('/events',(req,res)=>{
         // handle error
         console.log(error);
       })
-    axios.post(baseURL+":4003/events",event).then(function (response) {
+    axios.post("http://moderation-srv:4003/events",event).then(function (response) {
         // handle success
         console.log(response);
       })
