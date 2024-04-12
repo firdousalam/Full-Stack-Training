@@ -37,5 +37,5 @@ app.post('/events',(req,res)=>{
     res.send({"msg" : "event receive"});
 })
 app.listen(4000,function(req,res){
-    console.log("app is running 4009 by docker vv latest" )
+    console.log("app is running 4009 by docker v1 latest" )
 })
