@@ -1,0 +1,59 @@
+apiVersion: skaffold/v4beta10
+kind: config
+deploy: 
+  kubectl:
+    menefists:
+      - ./infra/kbs/*
+build: 
+  local:
+    push: false
+  artifacts:
+    - image: technophilefirdous/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+    - image: technophilefirdous/trainingcomment
+      context: comment
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: technophilefirdous/trainingevent
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: technophilefirdous/trainingmoderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: technophilefirdous/posttraining
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: technophilefirdous/trainingquery
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .               
+

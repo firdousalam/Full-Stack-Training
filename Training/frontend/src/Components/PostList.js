@@ -6,7 +6,7 @@ import CommentList from './CommentList';
 export default function PostList() {
     const [posts , setPost] = useState({});
     const fetchPost = async () =>{
-       await axios.get('http://localhost:4002/post').then(function (res) {
+       await axios.get('http://technophilefirdous.com/post').then(function (res) {
             // handle success
             setPost(res.data);
           })

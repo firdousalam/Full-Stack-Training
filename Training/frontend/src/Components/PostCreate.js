@@ -6,7 +6,7 @@ export default function PostCreate() {
     //title = "text"  // this 
     const onSubmit = async (event) =>{
         event.preventDefault();
-        await axios.post('http://localhost:4000/post',{title});
+        await axios.post('http://technophilefirdous.com/post/create',{title});
         setTitle('');
     }
   return (

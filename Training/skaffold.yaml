@@ -1,0 +1,41 @@
+apiVersion: skaffold/v4beta10
+kind: Config
+metadata:
+  name: training
+build:
+  artifacts:
+    - image: technophilefirdous/client
+      context: frontend
+      docker:
+        dockerfile: Dockerfile
+    - image: technophilefirdous/posttraining
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+    - image: technophilefirdous/trainingcomment
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+    - image: technophilefirdous/trainingevent
+      context: event
+      docker:
+        dockerfile: Dockerfile
+    - image: technophilefirdous/trainingmoderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+    - image: technophilefirdous/trainingquery
+      context: query
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - lib/k8s/client-depl.yml
+    - lib/k8s/comment-depl.yml
+    - lib/k8s/event-depl.yml
+    - lib/k8s/ingress-srv.yml
+    - lib/k8s/moderation-depl.yml
+    - lib/k8s/post-depl.yml
+    - lib/k8s/posts-srv.yml
+    - lib/k8s/posts.yml.old
+    - lib/k8s/query-depl.yml

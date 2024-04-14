@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: moderation
-          image: technophilefirdous/trainingevent:latest
+          image: technophilefirdous/trainingmoderation:latest
 ---
 apiVersion: v1
 kind: Service
