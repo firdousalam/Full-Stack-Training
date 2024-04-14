@@ -5,7 +5,7 @@ export default function CommentCreate({postId,title}) {
     const [content,setContent] = useState();
     const onSubmit = async (event) =>{
         event.preventDefault();
-        await axios.post('http://localhost:4001/post/'+postId+'/comment',{content});
+        await axios.post('http://technophilefirdous.com/post/'+postId+'/comment',{content});
         setContent('');
     }
   return (
